@@ -20,18 +20,18 @@ import java.util.stream.Collectors;
  * <p>
  * Fixing of any part
  * <p>
- *      0
+ *    0
  * <p>
  * Build a cross around first part
  * <p>
- *      1
- *    4 0 2
- *      3
+ *   1
+ * 4 0 2
+ *   3
  * <p>
  * Find a last part
- *      3
- *    2 5 4
- *      1
+ *   3
+ * 2 5 4
+ *   1
  * <p>
  * Check that solution is unique
  */
@@ -44,11 +44,12 @@ public class CubeSolver {
     private boolean[] flags;
     private int position;
     private boolean terminated;
+
     /**
      * Creates solver for {@link CubeSet}
      *
-     * @param set Set to solve
-     * @param strategy
+     * @param set      Set to solve
+     * @param strategy {@link Strategy}
      */
     public CubeSolver(@NotNull CubeSet set, Strategy strategy) {
         this.strategy = strategy;
@@ -83,8 +84,8 @@ public class CubeSolver {
         //recursive solving
         solveCrossImpl(Side.getByIndex(0));
 
-        if(solutions.isEmpty()){
-            throw new SolveException("There is no solutions",set);
+        if (solutions.isEmpty()) {
+            throw new SolveException("There is no solutions", set);
         }
 
         return solutions.stream().collect(Collectors.toList());
@@ -111,12 +112,12 @@ public class CubeSolver {
      * Builds cross around first element
      * Search matched part at particular side, using available parts of set
      * When all sides are matched with other parts, we can match last part
-     * @param side
-     *      Current side to match
+     *
+     * @param side Current side to match
      */
     private void solveCrossImpl(Side side) {
         //solving can be terminated
-        if(terminated) {
+        if (terminated) {
             return;
         }
 
@@ -148,7 +149,7 @@ public class CubeSolver {
      */
     private void matchLast() {
         //solving can be terminated
-        if(terminated) {
+        if (terminated) {
             return;
         }
         //get last part
@@ -179,7 +180,7 @@ public class CubeSolver {
      */
     private void checkCorners() {
         //solving can be terminated
-        if(terminated) {
+        if (terminated) {
             return;
         }
         //check front cross
@@ -207,7 +208,7 @@ public class CubeSolver {
                         solution[4],
                         solution[5]));
                 //single solution found
-                if(strategy == Strategy.SINGLE){
+                if (strategy == Strategy.SINGLE) {
                     terminated = true;
                 }
             }
@@ -216,8 +217,8 @@ public class CubeSolver {
 
     /**
      * Rotates and mirrors solution and checks that it is unique
-     * @param set
-     *      possible solution
+     *
+     * @param set possible solution
      */
     private void addSolutionIfUnique(CubeSolution set) {
         final CubeSolution tmp = set.copy();
@@ -245,8 +246,8 @@ public class CubeSolver {
 
     /**
      * Gives indexes of parts that are still not used in current solutions
-     * @return
-     *      List of all available indexes
+     *
+     * @return List of all available indexes
      */
     private ArrayList<Integer> getAvailable() {
         final ArrayList<Integer> indexes = new ArrayList<>();
@@ -257,7 +258,7 @@ public class CubeSolver {
         return indexes;
     }
 
-    public static enum Strategy{
+    public enum Strategy {
         SINGLE,
         ALL
     }

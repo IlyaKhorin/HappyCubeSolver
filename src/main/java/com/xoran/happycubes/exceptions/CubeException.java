@@ -15,32 +15,30 @@ public class CubeException extends Exception {
 
     /**
      * Simple Exception with message {@link Exception#Exception(String)}
-     * @param message
-     *      Exception's message
+     *
+     * @param message Exception's message
      */
-    public CubeException(String message){
+    public CubeException(String message) {
         super(message);
     }
 
     /**
      * Exception with message and related {@link CubePart}
-     * @param message
-     *      Exception's message
-     * @param part
-     *      Related {@link CubePart}
+     *
+     * @param message Exception's message
+     * @param part    Related {@link CubePart}
      */
-    public CubeException(String message, CubePart part){
-        super(message + "\n" +part.toString());
+    public CubeException(String message, CubePart part) {
+        super(message + "\n" + part.toString());
     }
 
     /**
      * Exception with message and related {@link CubeSet}
-     * @param message
-     *      Exception's message
-     * @param set
-     *      Related {@link CubeSet}
+     *
+     * @param message Exception's message
+     * @param set     Related {@link CubeSet}
      */
-    public CubeException(String message, CubeSet set){
-        super(message + "\n" +set.toString());
+    public CubeException(String message, CubeSet set) {
+        super(message + "\n" + set.toString());
     }
 }

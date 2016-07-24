@@ -22,7 +22,8 @@ public class CubeSolution extends CubeSet {
      * 4 0 2
      *   3
      *   5
-     *@see CubePart
+     *
+     * @see CubePart
      */
     public CubeSolution(
             @NotNull CubePart first,
@@ -45,8 +46,8 @@ public class CubeSolution extends CubeSet {
 
     /**
      * Copies current solution
-     * @return
-     *      Deep copy of solution
+     *
+     * @return Deep copy of solution
      */
     @NotNull
     @Override
@@ -63,8 +64,7 @@ public class CubeSolution extends CubeSet {
      *   3         2'
      *   5         5"
      *
-     * @return
-     *      return this
+     * @return return this
      */
     @NotNull
     public CubeSolution rotate() {
@@ -74,10 +74,8 @@ public class CubeSolution extends CubeSet {
         cubeParts[5].rotateInverse();
 
         final int shift = 1;
-        final CubePart tmp = cubeParts[shift+3];
-        for (int i = 3; i > 0; i--) {
-            cubeParts[shift + i] = cubeParts[shift + i - 1];
-        }
+        final CubePart tmp = cubeParts[shift + 3];
+        System.arraycopy(cubeParts, 1, cubeParts, 2, 3);
         cubeParts[shift] = tmp;
         return this;
     }
@@ -90,8 +88,7 @@ public class CubeSolution extends CubeSet {
      *   3         3'
      *   5         5'
      *
-     * @return
-     *      return this
+     * @return return this
      */
     @NotNull
     public CubeSolution mirror() {

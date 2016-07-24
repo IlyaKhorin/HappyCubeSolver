@@ -15,6 +15,9 @@ import java.util.HashSet;
  */
 public class CubeSolutionTest extends CubeBaseTest {
 
+    /**
+     * Tests {@link CubeSolution#equals(Object)} and {@link CubeSolution#hashCode()}
+     */
     @Test
     public void testCubeSolutionHashSet() throws ParseException, ValidationException {
         final HashSet<CubeSolution> sets = new HashSet<>();

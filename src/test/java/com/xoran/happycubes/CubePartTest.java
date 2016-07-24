@@ -3,8 +3,6 @@ package com.xoran.happycubes;
 
 import com.xoran.happycubes.cube.CubePart;
 import com.xoran.happycubes.exceptions.ValidationException;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -18,8 +16,6 @@ import java.util.Collection;
  */
 @RunWith(Parameterized.class)
 public class CubePartTest extends CubeBaseTest {
-
-    Logger log = LogManager.getLogger(CubePartTest.class);
 
     private String cubePartString;
 
@@ -44,6 +40,6 @@ public class CubePartTest extends CubeBaseTest {
     @Test
     public void testParse() throws ParseException, ValidationException {
         CubePart cubePart = CubePart.parse(cubePartString);
-        assertCubeToString(cubePart,cubePartString);
+        assertCubeToString(cubePart, cubePartString);
     }
 }

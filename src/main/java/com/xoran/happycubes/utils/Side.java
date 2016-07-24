@@ -5,7 +5,8 @@ package com.xoran.happycubes.utils;
  * 22.07.16
  */
 
-/** Represents enum of sides in clockwise direction
+/**
+ * Represents enum of sides in clockwise direction
  *             TOP(0)
  *          __________
  *         |          |
@@ -13,7 +14,6 @@ package com.xoran.happycubes.utils;
  *         |          |
  *         |__________|
  *           BOTTOM(2)
- *
  */
 public enum Side {
     TOP(0),
@@ -27,8 +27,8 @@ public enum Side {
 
     /**
      * Creates side with related integer index
-     * @param index
-     *      side index
+     *
+     * @param index side index
      */
     Side(int index) {
         this.index = index;
@@ -36,10 +36,9 @@ public enum Side {
 
     /**
      * return Side by index
-     * @param index
-     *      index, related to Side. Index will be looped by {@link LoopIndex}
-     * @return
-     *      Side related to index
+     *
+     * @param index index, related to Side. Index will be looped by {@link LoopIndex}
+     * @return Side related to index
      */
     public static Side getByIndex(int index) {
         index = SIDE_INDEX.get(index);
@@ -53,8 +52,8 @@ public enum Side {
 
     /**
      * Get related index
-     * @return
-     *      integer index related to Side
+     *
+     * @return integer index related to Side
      */
     public int getIndex() {
         return index;
@@ -62,8 +61,8 @@ public enum Side {
 
     /**
      * Returns opposite side to this side
-     * @return
-     *      Opposite side
+     *
+     * @return Opposite side
      */
     public Side getOpposite() {
         return getByIndex(getIndex() + 2);
@@ -71,8 +70,8 @@ public enum Side {
 
     /**
      * Returns next side in clockwise direction
-     * @return
-     *      Next side
+     *
+     * @return Next side
      */
     public Side getNext() {
         return getByIndex(getIndex() + 1);
@@ -80,20 +79,20 @@ public enum Side {
 
     /**
      * is side RIGHT or LEFT
-     * @return
-     *      True if RIGHT or LEFT
+     *
+     * @return True if RIGHT or LEFT
      */
-    public boolean isHorizontal(){
-        return getIndex()%2 > 0;
+    public boolean isHorizontal() {
+        return getIndex() % 2 > 0;
     }
 
     /**
      * is side TOP or BOTTOM
-     * @return
-     *      True if TOP or BOTTOM
+     *
+     * @return True if TOP or BOTTOM
      */
-    public boolean isVertical(){
-        return getIndex()%2 == 0;
+    public boolean isVertical() {
+        return getIndex() % 2 == 0;
     }
 
 }

@@ -21,18 +21,13 @@ public class TaskBase {
 
     /**
      * Performs task with differrnt strategy
-     * @param strategy
-     *      {@link CubeSolver.Strategy}
-     * @param stream
-     *      stream to write solution to
-     * @throws IOException
-     *      if write operation fails
-     * @throws SolveException
-     *      if solution wasn't found
-     * @throws ParseException
-     *      if CubeSet couldn't be parsed
-     * @throws ValidationException
-     *      if parsed Cube parts are not valid
+     *
+     * @param strategy {@link CubeSolver.Strategy}
+     * @param stream   stream to write solution to
+     * @throws IOException         if write operation fails
+     * @throws SolveException      if solution wasn't found
+     * @throws ParseException      if CubeSet couldn't be parsed
+     * @throws ValidationException if parsed Cube parts are not valid
      */
     protected static void performTask(CubeSolver.Strategy strategy, OutputStream stream) throws IOException, SolveException, ParseException, ValidationException {
         //using this approach just to demonstrate solving
@@ -47,7 +42,7 @@ public class TaskBase {
         );
 
         CubeSolver solver = new CubeSolver(cubeSet, strategy);
-        try(SolutionStreamWriter writer  = new SolutionStreamWriter(stream)) {
+        try (SolutionStreamWriter writer = new SolutionStreamWriter(stream)) {
             List<CubeSolution> solutions = solver.solve(0);
             for (CubeSolution solution : solutions) {
                 writer.writeSolution(solution);
@@ -58,10 +53,10 @@ public class TaskBase {
     /**
      * this strings are taken from CubeBaseTest
      * to demonstrate solving
-     * @return
-     *      Blue set
+     *
+     * @return Blue set
      */
-    private static String[] generateTestStrings(){
+    private static String[] generateTestStrings() {
         return new String[]{
                 "    []    \n" +
                         "  [][][]  \n" +

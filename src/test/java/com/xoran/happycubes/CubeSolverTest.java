@@ -21,6 +21,8 @@ import java.util.List;
 /**
  * Created by Ilya Khorin ilya.xelpy@gmail.com
  * 22.07.16
+ *
+ * Tests that all sets has particular count of unique solutions
  */
 @RunWith(Parameterized.class)
 public class CubeSolverTest extends CubeBaseTest {

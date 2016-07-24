@@ -33,50 +33,50 @@ public class CubePartActionsTest extends CubeBaseTest {
                 new Object[][]{
                         {
                                 "  []  []  \n" +
-                                "  [][][][]\n" +
-                                "[][][][]  \n" +
-                                "  [][][][]\n" +
-                                "[][]  [][]\n", 4},
+                                        "  [][][][]\n" +
+                                        "[][][][]  \n" +
+                                        "  [][][][]\n" +
+                                        "[][]  [][]\n", 4},
                         {
                                 "[]  []    \n" +
-                                "[][][][][]\n" +
-                                "  [][][]  \n" +
-                                "[][][][][]\n" +
-                                "[][]  []  \n", 1},
+                                        "[][][][][]\n" +
+                                        "  [][][]  \n" +
+                                        "[][][][][]\n" +
+                                        "[][]  []  \n", 1},
                         {
                                 "[][]  [][]\n" +
-                                "[][][][]  \n" +
-                                "  [][][][]\n" +
-                                "[][][][]  \n" +
-                                "  []  []  \n", 2},
+                                        "[][][][]  \n" +
+                                        "  [][][][]\n" +
+                                        "[][][][]  \n" +
+                                        "  []  []  \n", 2},
                         {
                                 "  []  [][]\n" +
-                                "[][][][][]\n" +
-                                "  [][][]  \n" +
-                                "[][][][][]\n" +
-                                "    []  []\n", 3},
+                                        "[][][][][]\n" +
+                                        "  [][][]  \n" +
+                                        "[][][][][]\n" +
+                                        "    []  []\n", 3},
                 });
     }
 
     @Test
     public void testRotate() throws ParseException, ValidationException {
         CubePart cubePart = CubePart.parse(TestSet.BLUE.getSixth());
-        for(int i=0;i<rotate;i++){
+        for (int i = 0; i < rotate; i++) {
             cubePart.rotate();
         }
-        assertCubeToString(cubePart,cubePartString);
+        assertCubeToString(cubePart, cubePartString);
     }
 
     @Test
     public void testRotateInverse() throws ParseException, ValidationException {
         CubePart cubePart = CubePart.parse(TestSet.BLUE.getSixth());
-        if(rotate < 4){
-            rotate = 4-rotate;
+        if (rotate < 4) {
+            rotate = 4 - rotate;
         }
-        for(int i=0;i<rotate;i++){
+        for (int i = 0; i < rotate; i++) {
             cubePart.rotateInverse();
         }
-        assertCubeToString(cubePart,cubePartString);
+        assertCubeToString(cubePart, cubePartString);
     }
 
     @Test
@@ -85,19 +85,19 @@ public class CubePartActionsTest extends CubeBaseTest {
 
         cubePart.mirror();
 
-        for(int i=0;i<rotate;i++){
+        for (int i = 0; i < rotate; i++) {
             cubePart.rotateInverse();
         }
 
         cubePartString = mirrorString(cubePartString);
 
-        assertCubeToString(cubePart,cubePartString);
+        assertCubeToString(cubePart, cubePartString);
     }
 
-    private String mirrorString(String str){
-        StringBuilder sb =new StringBuilder();
-        for(String row: str.split("\n")){
-            sb.append(new StringBuilder(row).reverse().toString().replace("][","[]")).append("\n");
+    private String mirrorString(String str) {
+        StringBuilder sb = new StringBuilder();
+        for (String row : str.split("\n")) {
+            sb.append(new StringBuilder(row).reverse().toString().replace("][", "[]")).append("\n");
         }
         return sb.toString();
     }

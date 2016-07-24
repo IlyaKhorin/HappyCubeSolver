@@ -7,7 +7,7 @@ import com.xoran.happycubes.cube.CubePart;
  * 24.07.16
  */
 public class ValidationException extends CubeException {
-    public ValidationException(String message, CubePart part){
-        super(message,part);
+    public ValidationException(String message, CubePart part) {
+        super(message, part);
     }
 }

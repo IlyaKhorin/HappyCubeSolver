@@ -15,10 +15,22 @@ import java.util.Objects;
  * 3 4 5
  */
 public class CubeSet {
+    /**
+     * Count of rows in set
+     */
     public static final int ROW_COUNT = 2;
+    /**
+     * Count of columns in set
+     */
     public static final int COL_COUNT = 3;
+    /**
+     * Count of Parts in set
+     */
     public static final int SIZE = COL_COUNT * ROW_COUNT;
 
+    /**
+     * Array of set parts
+     */
     protected final CubePart[] cubeParts;
 
     /**
@@ -53,14 +65,12 @@ public class CubeSet {
         }
     }
 
-    public CubePart getPart(int index){
+    public CubePart getPart(int index) {
         return cubeParts[index];
     }
 
     /**
      * Creates a copy of current set
-     *
-     * @return
      */
     @NotNull
     public CubeSet copy() {
@@ -115,6 +125,7 @@ public class CubeSet {
 
     /**
      * Calculates hash code corresponding to equals method
+     *
      * @see CubeSet#equals(Object)
      * @see CubePart#hashCode()
      */

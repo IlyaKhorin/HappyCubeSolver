@@ -12,10 +12,9 @@ public class CubeUtils {
 
     /**
      * Returns last element of iterator
-     * @param it
-     *      Iterator
-     * @return
-     *      Last element
+     *
+     * @param it Iterator
+     * @return Last element
      */
     public static boolean getLast(CubePart.SideIterator it) {
         while (it.hasNext()) {
@@ -34,15 +33,11 @@ public class CubeUtils {
      * [][][][][] |  [][][][]
      *   [][][]   |[][][][][]
      *   [][][][] |  [][][]
-     * @param cubePart1
-     *      First part to compare
-     * @param side1
-     *      Side of first part to compare
-     * @param cubePart2
-     *      Second part to compare
-     * @param side2
-     *      Side of second part to compare
-     * @return
+     *
+     * @param cubePart1 First part to compare
+     * @param side1     Side of first part to compare
+     * @param cubePart2 Second part to compare
+     * @param side2     Side of second part to compare
      */
     public static boolean areMatch(CubePart cubePart1, Side side1,
                                    CubePart cubePart2, Side side2) {
@@ -69,18 +64,15 @@ public class CubeUtils {
 
     /**
      * Finds all unique parts which matches to given cube part and side
-     * @param cubePart1
-     *      Cube part
-     * @param side1
-     *      Cube side
-     * @param cubePart2
-     *      Cube part to match with
-     * @return
-     *      List of matched unique combinations of cubePart2
+     *
+     * @param cubePart1 Cube part
+     * @param side1     Cube side
+     * @param cubePart2 Cube part to match with
+     * @return List of matched unique combinations of cubePart2
      */
     public static ArrayList<CubePart> findAllUniqueMatches(CubePart cubePart1, Side side1, CubePart cubePart2) {
         CubePart tmpCube = cubePart2.copy();
-        ArrayList<CubePart> parts = new ArrayList<CubePart>();
+        ArrayList<CubePart> parts = new ArrayList<>();
         for (int j = 0; j < 2; j++) {
             for (int i = 0; i < CubePart.SIDE_COUNT; i++) {
 
@@ -108,14 +100,13 @@ public class CubeUtils {
     /**
      * Finds all unique parts for this CubePart that can be got
      * by rotating and mirroring
-     * @param cubePart
-     *      Cube part
-     * @return
-     *      List of all unique parts
+     *
+     * @param cubePart Cube part
+     * @return List of all unique parts
      */
     public static ArrayList<CubePart> findAllUniqueParts(CubePart cubePart) {
         CubePart tmpCube = cubePart.copy();
-        ArrayList<CubePart> parts = new ArrayList<CubePart>();
+        ArrayList<CubePart> parts = new ArrayList<>();
         for (int j = 0; j < 2; j++) {
             for (int i = 0; i < CubePart.SIDE_COUNT; i++) {
 
@@ -142,7 +133,7 @@ public class CubeUtils {
      * Checks that corner is filled and not overlapped
      * Checks that parts 2 and 3 matches after folding
      * left top
-     *   2
+     * 2
      * 3 1
      * <p>
      * right top
@@ -151,7 +142,7 @@ public class CubeUtils {
      * <p>
      * left bottom
      * 3 1
-     *   2
+     * 2
      * <p>
      * right bottom
      * 1 3
@@ -177,32 +168,28 @@ public class CubeUtils {
         if (second.getCorner(verticalSide.getOpposite(), horisontalSide)) cornersCount++;
         if (third.getCorner(verticalSide, horisontalSide.getOpposite())) cornersCount++;
 
-        if( cornersCount == 1)
-        {
+        if (cornersCount == 1) {
             CubePart secondTmp = second.copy();
-         if(top^right){
-             secondTmp.rotateInverse();
-         }
-            else
-         {
-             secondTmp.rotate();
-         }
+            if (top ^ right) {
+                secondTmp.rotateInverse();
+            } else {
+                secondTmp.rotate();
+            }
 
-            return areMatch(secondTmp,verticalSide.getOpposite(),third,verticalSide);
-        }else {
+            return areMatch(secondTmp, verticalSide.getOpposite(), third, verticalSide);
+        } else {
             return false;
         }
     }
 
 
-
     /**
      * Checks all corners and parts matches for cross
-     *   2
+     * 2
      * 5 1 3
-     *   4
-     * @return
-     *      true if all parts matches and corners are valid, false otherwise
+     * 4
+     *
+     * @return true if all parts matches and corners are valid, false otherwise
      */
     public static boolean checkCrossCorners(CubePart first, CubePart second, CubePart third, CubePart forth, CubePart fifth) {
         return
